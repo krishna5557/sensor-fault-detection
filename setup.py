@@ -1,24 +1,33 @@
 from setuptools import find_packages,setup
 from typing import List
 
+HYPEN_E_DOT=-e .
+
 def get_requirements()->List[str]:
+    
     """
     This function will return list of requirements
     """
-    requirement_list:List[str] = []
+   
+    requirements=[]
+    with open(file_path) as file_obj:
+        requirements=file_obj.readlines()
+        requirements=[req.replace("\n","") for req in requirements]
 
-    """
-    Write a code to read requirements.txt file and append each requirements in requirement_list variable.
-    """
-    return requirement_list
+        if HYPEN_E_DOT in requirements:
+            requirements.remove(HYPEN_E_DOT)
+    
+    return requirements
+          
+ 
 
 
 setup(
     name="sensor",
     version="0.0.1",
-    author="ineuron",
-    author_email="avnish@ineuron.ai",
+    author="krishnakanth",
+    author_email="kgkrishnakanth7703@gmail.com",
     packages = find_packages(),
-    install_requires=get_requirements(),#["pymongo==4.2.0"],
+    install_requires=get_requirements()
 )
 
