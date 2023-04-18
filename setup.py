@@ -12,6 +12,7 @@ def get_requirements()->List[str]:
     """
     return requirement_list
 
+
 setup(
     name="sensor",
     version="0.0.1",
